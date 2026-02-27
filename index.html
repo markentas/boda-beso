@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boda - Sofía & Lucas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <!-- Audio -->
+    <audio id="audio" src="audio/audio.mp3" loop></audio>
+    <button id="btn-musica" class="btn-musica" onclick="toggleMusica()">
+        <i class="fas fa-music"></i>
+    </button>
+
+    <!-- Hero -->
+    <section id="hero" class="hero">
+        <div class="hero-particles">
+            <div class="particle" style="left: 10%; top: 15%; animation-delay: 0s;"></div>
+            <div class="particle" style="left: 85%; top: 25%; animation-delay: 0.7s;"></div>
+            <div class="particle" style="left: 20%; top: 70%; animation-delay: 1.2s;"></div>
+            <div class="particle" style="left: 75%; top: 80%; animation-delay: 1.8s;"></div>
+            <div class="particle" style="left: 50%; top: 50%; animation-delay: 2.5s;"></div>
+            <div class="particle" style="left: 35%; top: 30%; animation-delay: 0.4s;"></div>
+            <div class="particle" style="left: 65%; top: 60%; animation-delay: 1.5s;"></div>
+        </div>
+        
+        <div class="hero-content">
+            <p class="hero-join">Te invitamos a celebrar nuestro amor</p>
+            <div class="hero-names">
+                Sofía
+                <span>&</span>
+                Lucas
+            </div>
+            <div class="hero-date">15 DE JUNIO DE 2026</div>
+            <a href="#historia" class="hero-btn" onclick="iniciarMusica(); document.getElementById('historia').scrollIntoView({behavior: 'smooth'}); return false;">Comenzar</a>
+        </div>
+        
+        <div class="scroll-indicator">
+            <span>Desliza</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Countdown -->
+    <section id="countdown" class="countdown" data-fecha="2026-06-15" data-hora="17:00">
+        <h2 class="countdown-title">La cuenta regresiva</h2>
+        <div class="countdown-timer">
+            <div class="count-block">
+                <div class="count-circle">
+                    <span class="count-number" id="days">00</span>
+                </div>
+                <span class="count-label">Días</span>
+            </div>
+            <div class="count-block">
+                <div class="count-circle">
+                    <span class="count-number" id="hours">00</span>
+                </div>
+                <span class="count-label">Horas</span>
+            </div>
+            <div class="count-block">
+                <div class="count-circle">
+                    <span class="count-number" id="minutes">00</span>
+                </div>
+                <span class="count-label">Minutos</span>
+            </div>
+            <div class="count-block">
+                <div class="count-circle">
+                    <span class="count-number" id="seconds">00</span>
+                </div>
+                <span class="count-label">Segundos</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Historia / Slider -->
+    <section id="historia" class="historia">
+        <h2 class="historia-title">Nuestra Historia</h2>
+        <div class="slider-container">
+            <div class="slider-wrapper" id="sliderWrapper">
+                <div class="slider-slide">
+                    <img src="img/boda1.jpg" alt="Sofía & Lucas" loading="eager">
+                    <div class="slider-overlay">
+                        <p class="slider-text">El día que todo cambió</p>
+                        <p class="slider-year">2022</p>
+                    </div>
+                </div>
+                <div class="slider-slide">
+                    <img src="img/boda2.jpg" alt="Sofía & Lucas" loading="eager">
+                    <div class="slider-overlay">
+                        <p class="slider-text">Nuestra promesa</p>
+                        <p class="slider-year">2024</p>
+                    </div>
+                </div>
+                <div class="slider-slide">
+                    <img src="img/boda3.jpg" alt="Sofía & Lucas" loading="eager">
+                    <div class="slider-overlay">
+                        <p class="slider-text">Para siempre</p>
+                        <p class="slider-year">2026</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slider-nav">
+            <div class="slider-dot active" onclick="goToSlide(0)"></div>
+            <div class="slider-dot" onclick="goToSlide(1)"></div>
+            <div class="slider-dot" onclick="goToSlide(2)"></div>
+        </div>
+    </section>
+
+    <!-- Frase -->
+    <section id="frase" class="frase">
+        <div class="frase-container">
+            <p class="frase-text">"Dos almas que se encuentran no es casualidad, es destino."</p>
+            <p class="frase-autor">— Sofía & Lucas</p>
+        </div>
+    </section>
+
+    <!-- Ceremonia -->
+    <section id="ceremonia" class="ceremonia">
+        <div class="ceremonia-container">
+            <div class="ceremonia-icon">
+                <i class="fas fa-church"></i>
+            </div>
+            <p class="ceremonia-titulo">Ceremonia</p>
+            <p class="ceremonia-lugar">Iglesia Nuestra Señora del Rosario</p>
+            <p class="ceremonia-direccion">Av. Principal 456, Belgrano</p>
+            <p class="ceremonia-hora">17:00 horas</p>
+            <a href="https://maps.app.goo.gl/abc123" target="_blank" class="ceremonia-btn">
+                <i class="fas fa-map-marker-alt"></i> Ver Mapa
+            </a>
+        </div>
+    </section>
+
+    <!-- Recepción -->
+    <section id="recepcion" class="recepcion">
+        <div class="recepcion-container">
+            <div class="recepcion-icon">
+                <i class="fas fa-glass-cheers"></i>
+            </div>
+            <p class="recepcion-titulo">Recepción</p>
+            <p class="recepcion-lugar">Finca Los Olivos</p>
+            <p class="recepcion-direccion">Ruta 25 Km 12, Pilar</p>
+            <p class="recepcion-hora">19:00 horas</p>
+            <a href="https://maps.app.goo.gl/abc123" target="_blank" class="recepcion-btn">
+                <i class="fas fa-map-marker-alt"></i> Ver Mapa
+            </a>
+        </div>
+    </section>
+
+    <!-- Itinerario -->
+    <section id="itinerario" class="itinerario">
+        <div class="itinerario-container">
+            <h2 class="itinerario-titulo">El Día</h2>
+            <div class="itinerario-item">
+                <div class="itinerario-hora">17:00</div>
+                <div class="itinerario-detalle">
+                    <p class="itinerario-evento">Ceremonia</p>
+                    <p class="itinerario-lugar">Iglesia Ntra. Sra. del Rosario</p>
+                </div>
+            </div>
+            <div class="itinerario-item">
+                <div class="itinerario-hora">18:30</div>
+                <div class="itinerario-detalle">
+                    <p class="itinerario-evento">Cóctel de Bienvenida</p>
+                    <p class="itinerario-lugar">Finca Los Olivos</p>
+                </div>
+            </div>
+            <div class="itinerario-item">
+                <div class="itinerario-hora">20:00</div>
+                <div class="itinerario-detalle">
+                    <p class="itinerario-evento">Cena & Fiesta</p>
+                    <p class="itinerario-lugar">Salón Principal</p>
+                </div>
+            </div>
+            <div class="itinerario-item">
+                <div class="itinerario-hora">23:30</div>
+                <div class="itinerario-detalle">
+                    <p class="itinerario-evento">Primer Baile</p>
+                    <p class="itinerario-lugar">Pista de Baile</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dress Code -->
+    <section id="dresscode" class="dresscode">
+        <div class="dresscode-container">
+            <h2 class="dresscode-titulo">Dress Code</h2>
+            <p class="dresscode-texto">Elegante - Formal</p>
+            <p class="dresscode-nota">Solicitamos no usar blanco para respetar a la novia</p>
+            <div class="dresscode-colors">
+                <div class="color-swatch sage"></div>
+                <div class="color-swatch gold"></div>
+                <div class="color-swatch burgundy"></div>
+                <div class="color-swatch navy"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Frase 2 -->
+    <section id="frase2" class="frase2">
+        <div class="frase2-container">
+            <p class="frase2-texto">"El amor no tiene fecha de vencimiento, es para siempre."</p>
+        </div>
+    </section>
+
+    <!-- Regalos -->
+    <section id="regalos" class="regalos">
+        <div class="regalos-container">
+            <div class="regalos-icon">
+                <i class="fas fa-gift"></i>
+            </div>
+            <h2 class="regalos-titulo">Mesa de Regalos</h2>
+            <p class="regalos-texto">Tu presencia es nuestro mejor regalo. Si deseas hacernos un detalle, hemos preparado algunas opciones para ti.</p>
+            <div class="regalos-opciones">
+                <a href="#" class="regalos-btn" onclick="openModal(); return false;">
+                    <i class="fas fa-university"></i> Datos Bancarios
+                </a>
+                <a href="https://amazon.com/wishlist/abc" target="_blank" class="regalos-btn regalos-btn-outline">
+                    <i class="fas fa-box"></i> Ver Lista
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram -->
+    <section id="instagram" class="instagram">
+        <div class="instagram-container">
+            <div class="instagram-icon">
+                <i class="fab fa-instagram"></i>
+            </div>
+            <h2 class="instagram-titulo">Compartí tus fotos</h2>
+            <p class="instagram-texto">Etiquetanos en tus fotos para que podamos revivir cada momento especial.</p>
+            <p class="instagram-usuario">@sofialucas.boda</p>
+            <p class="instagram-hashtag-titulo">Usá el hashtag</p>
+            <p class="instagram-hashtag">#Sofía&Lucas2026</p>
+        </div>
+    </section>
+
+    <!-- Hashtag Animado -->
+    <section id="hashtag" class="hashtag">
+        <div class="hashtag-container">
+            <p class="hashtag-text">#LoveIn2026</p>
+        </div>
+    </section>
+
+    <!-- Confirmar Asistencia -->
+    <section id="rsvp" class="rsvp">
+        <div class="rsvp-container">
+            <div class="rsvp-icon">
+                <i class="fas fa-envelope"></i>
+            </div>
+            <h2 class="rsvp-titulo">Confirmar Asistencia</h2>
+            <p class="rsvp-texto">Por favor, confirmá tu asistencia antes del <strong>1 de Junio de 2026</strong></p>
+            <p class="rsvp-detalle">Incluí nombre completo y si asistís con acompañantes</p>
+            <a href="https://wa.me/5491112345678?text=Hola%2C%20quiero%20confirmar%20mi%20asistencia%20a%20la%20boda%20de%20Sof%C3%ADa%20y%20Lucas" target="_blank" class="rsvp-btn">
+                <i class="fab fa-whatsapp"></i> Confirmar por WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section id="footer" class="footer">
+        <div class="footer-container">
+            <p class="footer-gracias">Gracias</p>
+            <p class="footer-nombres">Sofía <span class="footer-and">&</span> Lucas</p>
+            <p class="footer-fecha">15 DE JUNIO 2026</p>
+            <p class="footer-mensaje">Te esperamos para celebrar este día tan especial</p>
+        </div>
+    </section>
+
+    <!-- Modal Datos Bancarios -->
+    <div id="modal" class="modal" onclick="closeModal(event)">
+        <div class="modal-content">
+            <h3 class="modal-titulo">Datos para Transferencia</h3>
+            <div class="modal-datos">
+                <div class="modal-item">
+                    <p class="modal-label">Banco</p>
+                    <p class="modal-value">Banco Nación</p>
+                </div>
+                <div class="modal-item">
+                    <p class="modal-label">CBU</p>
+                    <p class="modal-value">0000003100123456789012</p>
+                </div>
+                <div class="modal-item">
+                    <p class="modal-label">Alias</p>
+                    <p class="modal-value">SOFIA.LUCAS.BODA</p>
+                </div>
+                <div class="modal-item">
+                    <p class="modal-label">Titular</p>
+                    <p class="modal-value">Sofía Martínez</p>
+                </div>
+            </div>
+            <button class="modal-cerrar" onclick="closeModal()">Cerrar</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
