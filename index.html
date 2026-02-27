@@ -265,8 +265,16 @@
             <p class="footer-nombres">Sofía <span class="footer-and">&</span> Lucas</p>
             <p class="footer-fecha">15 DE JUNIO 2026</p>
             <p class="footer-mensaje">Te esperamos para celebrar este día tan especial</p>
+            <div class="footer-markentas">
+                <a href="https://markentas.github.io" target="_blank" class="footer-markentas-link">← Volver a los Diseños</a>
+            </div>
         </div>
     </section>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5493873600399?text=Hola%2C%20quiero%20solicitar%20una%20tarjeta" target="_blank" class="whatsapp-float" id="whatsappBtn">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <!-- Modal Datos Bancarios -->
     <div id="modal" class="modal" onclick="closeModal(event)">
@@ -295,5 +303,20 @@
     </div>
 
     <script src="js/script.js"></script>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            const docHeight = document.documentElement.scrollHeight;
+            const winHeight = window.innerHeight;
+            const whatsappBtn = document.getElementById('whatsappBtn');
+            
+            if (scrollTop + winHeight >= docHeight - 200) {
+                whatsappBtn.classList.add('visible');
+            } else {
+                whatsappBtn.classList.remove('visible');
+            }
+        });
+    </script>
 </body>
 </html>
